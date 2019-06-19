@@ -10,10 +10,19 @@ import UIKit
 
 public class AnimationView: UIView {
 	@IBOutlet var contentView: UIView!
-
 	@IBOutlet var animatedViews: [UIView]!
 
-	
+	private var animationStopping: Bool = false
+
+	public var isAnimating: Bool {
+		for blob in animatedViews {
+			if blob.layer.animationKeys() != nil {
+				return true
+			}
+		}
+		return false
+	}
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		commonInit()
@@ -44,7 +53,6 @@ public class AnimationView: UIView {
 		}
 	}
 
-	private var animationStopping: Bool = false
 	public func endAnimation(immediately immediate: Bool = false) {
 		animationStopping = true
 		if immediate {
