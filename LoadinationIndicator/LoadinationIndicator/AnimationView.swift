@@ -83,3 +83,13 @@ public class AnimationView: UIView {
 		}
 	}
 }
+
+
+extension AnimationView {
+	public static func fullscreenOverlay() -> AnimationView? {
+		guard let rootView = UIApplication.shared.delegate?.window??.rootViewController?.view else { return nil }
+		let animationView = AnimationView(frame: rootView.frame)
+		rootView.addSubview(animationView)
+		return animationView
+	}
+}

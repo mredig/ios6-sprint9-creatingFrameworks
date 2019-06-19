@@ -17,19 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8j-nY-3Kc" customClass="AnimationView" customModule="LoadinationIndicator">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" red="0.70407626300000004" green="0.1491468826" blue="0.11407509020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="s8j-nY-3Kc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KZJ-Cu-oEL"/>
-                            <constraint firstItem="s8j-nY-3Kc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lCZ-wB-G9z"/>
-                            <constraint firstAttribute="bottom" secondItem="s8j-nY-3Kc" secondAttribute="bottom" id="luH-YL-cjp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s8j-nY-3Kc" secondAttribute="trailing" id="pfs-mq-8Mc"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="cwN-20-knZ">
@@ -51,9 +39,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="animatedLoadingView" destination="s8j-nY-3Kc" id="iZv-nf-Ygx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

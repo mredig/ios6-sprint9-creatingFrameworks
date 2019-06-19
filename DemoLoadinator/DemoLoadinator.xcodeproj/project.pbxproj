@@ -13,8 +13,6 @@
 		339D65D422BACBDD00BD80AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339D65D322BACBDD00BD80AB /* Assets.xcassets */; };
 		339D65D722BACBDD00BD80AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339D65D522BACBDD00BD80AB /* LaunchScreen.storyboard */; };
 		339D65E222BACBDD00BD80AB /* DemoLoadinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D65E122BACBDD00BD80AB /* DemoLoadinatorTests.swift */; };
-		339D65F622BACC3300BD80AB /* LoadinationIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339D65F322BACC2B00BD80AB /* LoadinationIndicator.framework */; };
-		339D65F722BACC3300BD80AB /* LoadinationIndicator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 339D65F322BACC2B00BD80AB /* LoadinationIndicator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,26 +23,19 @@
 			remoteGlobalIDString = 339D65C822BACBDC00BD80AB;
 			remoteInfo = DemoLoadinator;
 		};
-		339D65F222BACC2B00BD80AB /* PBXContainerItemProxy */ = {
+		33C66C9922BAF6AD006ABD98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 339D65ED22BACC2B00BD80AB /* LoadinationIndicator.xcodeproj */;
+			containerPortal = 33C66C9222BAF633006ABD98 /* LoadinationIndicator.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 339D65A622BACB9500BD80AB;
 			remoteInfo = LoadinationIndicator;
 		};
-		339D65F422BACC2B00BD80AB /* PBXContainerItemProxy */ = {
+		33C66C9B22BAF6AD006ABD98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 339D65ED22BACC2B00BD80AB /* LoadinationIndicator.xcodeproj */;
+			containerPortal = 33C66C9222BAF633006ABD98 /* LoadinationIndicator.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 339D65AF22BACB9600BD80AB;
 			remoteInfo = LoadinationIndicatorTests;
-		};
-		339D65F822BACC3300BD80AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 339D65ED22BACC2B00BD80AB /* LoadinationIndicator.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 339D65A522BACB9500BD80AB;
-			remoteInfo = LoadinationIndicator;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				339D65F722BACC3300BD80AB /* LoadinationIndicator.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +63,7 @@
 		339D65DD22BACBDD00BD80AB /* DemoLoadinatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoLoadinatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		339D65E122BACBDD00BD80AB /* DemoLoadinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLoadinatorTests.swift; sourceTree = "<group>"; };
 		339D65E322BACBDD00BD80AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		339D65ED22BACC2B00BD80AB /* LoadinationIndicator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoadinationIndicator.xcodeproj; path = ../../LoadinationIndicator/LoadinationIndicator.xcodeproj; sourceTree = "<group>"; };
+		33C66C9222BAF633006ABD98 /* LoadinationIndicator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoadinationIndicator.xcodeproj; path = ../LoadinationIndicator/LoadinationIndicator.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339D65F622BACC3300BD80AB /* LoadinationIndicator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,16 +128,16 @@
 		339D65EC22BACC1D00BD80AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				339D65ED22BACC2B00BD80AB /* LoadinationIndicator.xcodeproj */,
+				33C66C9222BAF633006ABD98 /* LoadinationIndicator.xcodeproj */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
-		339D65EE22BACC2B00BD80AB /* Products */ = {
+		33C66C9522BAF6AD006ABD98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				339D65F322BACC2B00BD80AB /* LoadinationIndicator.framework */,
-				339D65F522BACC2B00BD80AB /* LoadinationIndicatorTests.xctest */,
+				33C66C9A22BAF6AD006ABD98 /* LoadinationIndicator.framework */,
+				33C66C9C22BAF6AD006ABD98 /* LoadinationIndicatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,7 +157,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				339D65F922BACC3300BD80AB /* PBXTargetDependency */,
 			);
 			name = DemoLoadinator;
 			productName = DemoLoadinator;
@@ -225,8 +213,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 339D65EE22BACC2B00BD80AB /* Products */;
-					ProjectRef = 339D65ED22BACC2B00BD80AB /* LoadinationIndicator.xcodeproj */;
+					ProductGroup = 33C66C9522BAF6AD006ABD98 /* Products */;
+					ProjectRef = 33C66C9222BAF633006ABD98 /* LoadinationIndicator.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -238,18 +226,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		339D65F322BACC2B00BD80AB /* LoadinationIndicator.framework */ = {
+		33C66C9A22BAF6AD006ABD98 /* LoadinationIndicator.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = LoadinationIndicator.framework;
-			remoteRef = 339D65F222BACC2B00BD80AB /* PBXContainerItemProxy */;
+			remoteRef = 33C66C9922BAF6AD006ABD98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		339D65F522BACC2B00BD80AB /* LoadinationIndicatorTests.xctest */ = {
+		33C66C9C22BAF6AD006ABD98 /* LoadinationIndicatorTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = LoadinationIndicatorTests.xctest;
-			remoteRef = 339D65F422BACC2B00BD80AB /* PBXContainerItemProxy */;
+			remoteRef = 33C66C9B22BAF6AD006ABD98 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -299,11 +287,6 @@
 			isa = PBXTargetDependency;
 			target = 339D65C822BACBDC00BD80AB /* DemoLoadinator */;
 			targetProxy = 339D65DE22BACBDD00BD80AB /* PBXContainerItemProxy */;
-		};
-		339D65F922BACC3300BD80AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LoadinationIndicator;
-			targetProxy = 339D65F822BACC3300BD80AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
