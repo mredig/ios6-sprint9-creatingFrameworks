@@ -9,6 +9,8 @@
 import UIKit
 
 public class AnimationView: UIView {
+
+	// MARK: - Properties: IB
 	@IBOutlet var contentView: UIView!
 	@IBOutlet var animatedViews: [UIView]!
 
@@ -31,6 +33,7 @@ public class AnimationView: UIView {
 	@IBOutlet var statusBottomAnchor: NSLayoutConstraint!
 	@IBOutlet var statusTopAnchor: NSLayoutConstraint!
 
+	// MARK: - Properties: Status
 	private var animationStopping: Bool = false
 
 	public var isAnimating: Bool {
@@ -42,6 +45,7 @@ public class AnimationView: UIView {
 		return false
 	}
 
+	// MARK: - Inits
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		commonInit()
@@ -65,6 +69,7 @@ public class AnimationView: UIView {
 		}
 	}
 
+	// MARK: - Controls
 	public func beginAnimation() {
 		animationStopping = false
 		for (index, blob) in animatedViews.enumerated() {
@@ -107,7 +112,7 @@ extension AnimationView {
 	}
 }
 
-
+// MARK: - Special
 extension AnimationView {
 	public static func fullscreenOverlay() -> AnimationView? {
 		guard let rootView = UIApplication.shared.delegate?.window??.rootViewController?.view else { return nil }
