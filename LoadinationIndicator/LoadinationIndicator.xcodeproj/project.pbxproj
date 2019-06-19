@@ -10,6 +10,8 @@
 		339D65B022BACB9600BD80AB /* LoadinationIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339D65A622BACB9500BD80AB /* LoadinationIndicator.framework */; };
 		339D65B522BACB9600BD80AB /* LoadinationIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D65B422BACB9600BD80AB /* LoadinationIndicatorTests.swift */; };
 		339D65B722BACB9600BD80AB /* LoadinationIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 339D65A922BACB9500BD80AB /* LoadinationIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		339D65FC22BACD4B00BD80AB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D65FB22BACD4B00BD80AB /* AnimationView.swift */; };
+		339D65FE22BACEAE00BD80AB /* AnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339D65FD22BACEAE00BD80AB /* AnimationView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		339D65AF22BACB9600BD80AB /* LoadinationIndicatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadinationIndicatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		339D65B422BACB9600BD80AB /* LoadinationIndicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadinationIndicatorTests.swift; sourceTree = "<group>"; };
 		339D65B622BACB9600BD80AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		339D65FB22BACD4B00BD80AB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		339D65FD22BACEAE00BD80AB /* AnimationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				339D65A922BACB9500BD80AB /* LoadinationIndicator.h */,
+				339D65FB22BACD4B00BD80AB /* AnimationView.swift */,
+				339D65FD22BACEAE00BD80AB /* AnimationView.xib */,
 				339D65AA22BACB9500BD80AB /* Info.plist */,
 			);
 			path = LoadinationIndicator;
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					339D65A522BACB9500BD80AB = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					339D65AE22BACB9600BD80AB = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -177,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339D65FE22BACEAE00BD80AB /* AnimationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339D65FC22BACD4B00BD80AB /* AnimationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +350,7 @@
 		339D65BB22BACB9600BD80AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.redeggproductions.LoadinationIndicator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +377,7 @@
 		339D65BC22BACB9600BD80AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +403,7 @@
 		339D65BE22BACB9600BD80AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				INFOPLIST_FILE = LoadinationIndicatorTests/Info.plist;
@@ -409,6 +422,7 @@
 		339D65BF22BACB9600BD80AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				INFOPLIST_FILE = LoadinationIndicatorTests/Info.plist;
