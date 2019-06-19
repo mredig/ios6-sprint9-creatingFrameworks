@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		let animationView = AnimationView.createFullScreenOverlay()
+		let animationView = AnimationView.fullscreenOverlay()
 		animationView?.beginAnimation()
 
 		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
