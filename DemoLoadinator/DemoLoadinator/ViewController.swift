@@ -17,6 +17,7 @@ class ViewController: UIViewController {
 
 		let animationView = AnimationView.fullscreenOverlay()
 		animationView?.beginAnimation()
+		animationView?.statusLabelPosition = .top
 
 		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
 			animationView?.endAnimation()

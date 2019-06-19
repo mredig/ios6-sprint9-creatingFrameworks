@@ -12,6 +12,25 @@ public class AnimationView: UIView {
 	@IBOutlet var contentView: UIView!
 	@IBOutlet var animatedViews: [UIView]!
 
+	public enum StatusLabelPosition {
+		case top, bottom
+	}
+	public var statusLabelPosition = StatusLabelPosition.bottom {
+		didSet {
+			switch statusLabelPosition {
+			case .top:
+				statusBottomAnchor.isActive = false
+				statusTopAnchor.isActive = true
+			case .bottom:
+				statusTopAnchor.isActive = false
+				statusBottomAnchor.isActive = true
+			}
+		}
+	}
+	@IBOutlet public var statusLabel: UILabel!
+	@IBOutlet var statusBottomAnchor: NSLayoutConstraint!
+	@IBOutlet var statusTopAnchor: NSLayoutConstraint!
+
 	private var animationStopping: Bool = false
 
 	public var isAnimating: Bool {
@@ -64,6 +83,10 @@ public class AnimationView: UIView {
 		}
 	}
 
+}
+
+// MARK: - Actual Animations
+extension AnimationView {
 	private func animate(view: UIView, duration: TimeInterval = 3, delayed: TimeInterval = 0) {
 		view.transform = CGAffineTransform(scaleX: 0, y: 0)
 		view.alpha = 0
