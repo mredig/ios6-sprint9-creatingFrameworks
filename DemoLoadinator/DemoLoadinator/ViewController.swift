@@ -12,26 +12,6 @@ import LoadinationIndicator
 class ViewController: UIViewController {
 	var animatedLoadingView: LoadinationAnimatorView?
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-		let animationView = LoadinationAnimatorView.fullscreenOverlay()
-		animationView?.animation = .bounce
-		animationView?.beginAnimation()
-
-//		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//			animationView?.endAnimation()
-//			animationView?.removeFromSuperview()
-//		}
-	}
-
-	@IBAction func playPressed(_ sender: UIBarButtonItem) {
-		animatedLoadingView = LoadinationAnimatorView(frame: view.frame)
-		animatedLoadingView?.statusLabelPosition = .bottom
-		view.addSubview(animatedLoadingView!)
-		animatedLoadingView?.beginAnimation()
-	}
-
 	@IBAction func stopPressed(_ sender: UIBarButtonItem) {
 		UIView.animate(withDuration: 0.2, animations: { [weak self] in
 			self?.animatedLoadingView?.alpha = 0
@@ -40,8 +20,63 @@ class ViewController: UIViewController {
 		}
 	}
 
-	@IBAction func nowPressed(_ sender: UIBarButtonItem) {
-//		animatedLoadingView.endAnimation(immediately: true)
+	@IBAction func bouncePressed(_ sender: UIButton) {
+		animatedLoadingView = LoadinationAnimatorView(frame: view.frame)
+		animatedLoadingView?.statusLabelPosition = .top
+		animatedLoadingView?.statusLabel.text = "BOUNCE!"
+		animatedLoadingView?.animation = .bounce
+		view.addSubview(animatedLoadingView!)
+		animatedLoadingView?.beginAnimation()
+	}
+
+	@IBAction func growFadePressed(_ sender: UIButton) {
+		animatedLoadingView = LoadinationAnimatorView(frame: view.frame)
+		animatedLoadingView?.statusLabelPosition = .bottom
+		animatedLoadingView?.statusLabel.text = "Grow and fade..."
+		view.addSubview(animatedLoadingView!)
+		animatedLoadingView?.beginAnimation()
+	}
+
+	@IBAction func panelPressed(_ sender: UIButton) {
+		animatedLoadingView = LoadinationAnimatorView.fullScreenPanel()
+		animatedLoadingView?.statusLabelPosition = .bottom
+		animatedLoadingView?.statusLabel.text = "Panel mode... ACTIVATE!"
+		animatedLoadingView?.beginAnimation()
+
+		var seconds = 4
+		_ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] (timer) in
+			self?.animatedLoadingView?.statusLabel.text = "Deactivating in \(seconds)"
+			seconds -= 1
+			if seconds == 0 {
+				timer.invalidate()
+			}
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+			self?.animatedLoadingView?.endAnimation()
+			self?.animatedLoadingView?.removeFromSuperview()
+		}
+	}
+
+	@IBAction func fullscreenPressed(_ sender: UIButton) {
+		animatedLoadingView = LoadinationAnimatorView.fullscreenOverlay()
+		animatedLoadingView?.statusLabelPosition = .bottom
+		animatedLoadingView?.statusLabel.text = ""
+		animatedLoadingView?.beginAnimation()
+
+		var seconds = 4
+		_ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] (timer) in
+			self?.animatedLoadingView?.statusLabel.text = "Deactivating in \(seconds)"
+			seconds -= 1
+			if seconds == 0 {
+				timer.invalidate()
+			}
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+			self?.animatedLoadingView?.endAnimation()
+			self?.animatedLoadingView?.removeFromSuperview()
+		}
 	}
 
 }

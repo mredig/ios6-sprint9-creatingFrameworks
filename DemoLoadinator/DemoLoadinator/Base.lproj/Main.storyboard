@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,25 +18,54 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-6q-bDi">
+                                <rect key="frame" x="16" y="104" width="382" height="742"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7F-XZ-isa">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="185.5"/>
+                                        <state key="normal" title="Bounce"/>
+                                        <connections>
+                                            <action selector="bouncePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uHT-wg-pvO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dr-ZG-dPt">
+                                        <rect key="frame" x="0.0" y="193.5" width="382" height="185.5"/>
+                                        <state key="normal" title="Grow and Fade"/>
+                                        <connections>
+                                            <action selector="growFadePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zQX-x3-4qU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nc-N2-A1X">
+                                        <rect key="frame" x="0.0" y="387" width="382" height="185.5"/>
+                                        <state key="normal" title="Panel"/>
+                                        <connections>
+                                            <action selector="panelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mfR-dD-OD1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKQ-Xx-BEQ">
+                                        <rect key="frame" x="0.0" y="580.5" width="382" height="161.5"/>
+                                        <state key="normal" title="FULLSCREEN"/>
+                                        <connections>
+                                            <action selector="fullscreenPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ShV-3w-gdz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F1I-6q-bDi" secondAttribute="trailing" constant="16" id="44h-UF-5KL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="F1I-6q-bDi" secondAttribute="bottom" constant="16" id="OGR-84-8vx"/>
+                            <constraint firstItem="F1I-6q-bDi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dts-lF-8u2"/>
+                            <constraint firstItem="F1I-6q-bDi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="pfm-d9-bOr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="cwN-20-knZ">
-                        <leftBarButtonItems>
-                            <barButtonItem title="Stop" id="yCg-6b-Swd">
-                                <connections>
-                                    <action selector="stopPressed:" destination="BYZ-38-t0r" id="KE2-z2-5v1"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="NOW!" style="done" id="Zus-l1-hjM">
-                                <connections>
-                                    <action selector="nowPressed:" destination="BYZ-38-t0r" id="s3W-lR-RuS"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="WZe-Zj-B77">
+                        <barButtonItem key="leftBarButtonItem" title="Stop" id="yCg-6b-Swd">
                             <connections>
-                                <action selector="playPressed:" destination="BYZ-38-t0r" id="pbm-81-TU9"/>
+                                <action selector="stopPressed:" destination="BYZ-38-t0r" id="KE2-z2-5v1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

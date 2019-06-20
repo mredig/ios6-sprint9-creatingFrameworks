@@ -172,4 +172,18 @@ extension LoadinationAnimatorView {
 		rootView.addSubview(animationView)
 		return animationView
 	}
+
+	public static func fullScreenPanel(sized size: CGFloat = 350) -> LoadinationAnimatorView? {
+		guard let animator = fullscreenOverlay() else { return nil }
+		animator.contentView.translatesAutoresizingMaskIntoConstraints = false
+
+		animator.contentView.heightAnchor.constraint(equalToConstant: size).isActive = true
+		animator.contentView.widthAnchor.constraint(equalToConstant: size).isActive = true
+		animator.contentView.centerXAnchor.constraint(equalTo: animator.centerXAnchor).isActive = true
+		animator.contentView.centerYAnchor.constraint(equalTo: animator.centerYAnchor).isActive = true
+
+		animator.contentView.layer.cornerRadius = 50
+
+		return animator
+	}
 }
