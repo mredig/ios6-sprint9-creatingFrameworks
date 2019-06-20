@@ -48,6 +48,26 @@ public class LoadinationAnimatorView: UIView {
 		}
 	}
 
+	public override var backgroundColor: UIColor? {
+		get {
+			return contentView.backgroundColor
+		}
+		set {
+			contentView.backgroundColor = newValue
+		}
+	}
+
+	public override var tintColor: UIColor? {
+		get {
+			return animatedViews.first?.backgroundColor
+		}
+		set {
+			for blob in animatedViews {
+				blob.backgroundColor = newValue
+			}
+		}
+	}
+
 	public var animation = Animation.growFade
 	public enum Animation {
 		case growFade

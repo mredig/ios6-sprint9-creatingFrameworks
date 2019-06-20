@@ -66,6 +66,9 @@ class ViewController: UIViewController {
 		animatedLoadingView = LoadinationAnimatorView.fullscreenOverlay()
 		animatedLoadingView?.statusLabelPosition = .bottom
 		animatedLoadingView?.statusLabel.text = ""
+		let hue: CGFloat = 0.6
+		animatedLoadingView?.backgroundColor = UIColor(hue: hue, saturation: 0.3, brightness: 0.3, alpha: 0.7)
+		animatedLoadingView?.tintColor = UIColor(hue: hue, saturation: 0.8, brightness: 0.8, alpha: 1)
 		animatedLoadingView?.beginAnimation()
 
 		var seconds = 4
