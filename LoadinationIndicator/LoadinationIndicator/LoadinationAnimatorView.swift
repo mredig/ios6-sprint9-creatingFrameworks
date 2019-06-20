@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Class that displays an indeterminate progress indicator with animation.
 public class LoadinationAnimatorView: UIView {
 
 	// MARK: - Properties: IB
