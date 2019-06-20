@@ -41,6 +41,7 @@ class ViewController: UIViewController {
 		animatedLoadingView = LoadinationAnimatorView.fullScreenPanel()
 		animatedLoadingView?.statusLabelPosition = .bottom
 		animatedLoadingView?.statusLabel.text = "Panel mode... ACTIVATE!"
+		animatedLoadingView?.animation = .bounce
 		animatedLoadingView?.beginAnimation()
 
 		var seconds = 4
@@ -53,8 +54,11 @@ class ViewController: UIViewController {
 		}
 
 		DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-			self?.animatedLoadingView?.endAnimation()
-			self?.animatedLoadingView?.removeFromSuperview()
+			UIView.animate(withDuration: 0.2, animations: { [weak self] in
+				self?.animatedLoadingView?.alpha = 0
+			}) { [weak self] _ in
+				self?.animatedLoadingView?.removeFromSuperview()
+			}
 		}
 	}
 
@@ -74,8 +78,11 @@ class ViewController: UIViewController {
 		}
 
 		DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-			self?.animatedLoadingView?.endAnimation()
-			self?.animatedLoadingView?.removeFromSuperview()
+			UIView.animate(withDuration: 0.2, animations: { [weak self] in
+				self?.animatedLoadingView?.alpha = 0
+			}) { [weak self] _ in
+				self?.animatedLoadingView?.removeFromSuperview()
+			}
 		}
 	}
 
