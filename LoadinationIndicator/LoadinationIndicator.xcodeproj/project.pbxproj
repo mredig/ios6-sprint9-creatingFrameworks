@@ -10,7 +10,7 @@
 		339D65B022BACB9600BD80AB /* LoadinationIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339D65A622BACB9500BD80AB /* LoadinationIndicator.framework */; };
 		339D65B522BACB9600BD80AB /* LoadinationIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D65B422BACB9600BD80AB /* LoadinationIndicatorTests.swift */; };
 		339D65B722BACB9600BD80AB /* LoadinationIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 339D65A922BACB9500BD80AB /* LoadinationIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		339D65FC22BACD4B00BD80AB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D65FB22BACD4B00BD80AB /* AnimationView.swift */; };
+		339D65FC22BACD4B00BD80AB /* LoadinationAnimatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D65FB22BACD4B00BD80AB /* LoadinationAnimatorView.swift */; };
 		339D65FE22BACEAE00BD80AB /* AnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339D65FD22BACEAE00BD80AB /* AnimationView.xib */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		339D65AF22BACB9600BD80AB /* LoadinationIndicatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadinationIndicatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		339D65B422BACB9600BD80AB /* LoadinationIndicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadinationIndicatorTests.swift; sourceTree = "<group>"; };
 		339D65B622BACB9600BD80AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		339D65FB22BACD4B00BD80AB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		339D65FB22BACD4B00BD80AB /* LoadinationAnimatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadinationAnimatorView.swift; sourceTree = "<group>"; };
 		339D65FD22BACEAE00BD80AB /* AnimationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				339D65A922BACB9500BD80AB /* LoadinationIndicator.h */,
-				339D65FB22BACD4B00BD80AB /* AnimationView.swift */,
+				339D65FB22BACD4B00BD80AB /* LoadinationAnimatorView.swift */,
 				339D65FD22BACEAE00BD80AB /* AnimationView.xib */,
 				339D65AA22BACB9500BD80AB /* Info.plist */,
 			);
@@ -202,7 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339D65FC22BACD4B00BD80AB /* AnimationView.swift in Sources */,
+				339D65FC22BACD4B00BD80AB /* LoadinationAnimatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  AnimationView.swift
+//  LoadinationAnimatorView.swift
 //  LoadinationIndicator
 //
 //  Created by Michael Redig on 6/19/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AnimationView: UIView {
+public class LoadinationAnimatorView: UIView {
 
 	// MARK: - Properties: IB
 	@IBOutlet var contentView: UIView!
@@ -105,7 +105,7 @@ public class AnimationView: UIView {
 }
 
 // MARK: - Actual Animations
-extension AnimationView {
+extension LoadinationAnimatorView {
 	private func animateGrowFade(view: UIView, duration: TimeInterval = 3, delayed: TimeInterval = 0) {
 		view.transform = CGAffineTransform(scaleX: 0, y: 0)
 		view.alpha = 0
@@ -165,10 +165,10 @@ extension AnimationView {
 }
 
 // MARK: - Special
-extension AnimationView {
-	public static func fullscreenOverlay() -> AnimationView? {
+extension LoadinationAnimatorView {
+	public static func fullscreenOverlay() -> LoadinationAnimatorView? {
 		guard let rootView = UIApplication.shared.delegate?.window??.rootViewController?.view else { return nil }
-		let animationView = AnimationView(frame: rootView.frame)
+		let animationView = LoadinationAnimatorView(frame: rootView.frame)
 		rootView.addSubview(animationView)
 		return animationView
 	}

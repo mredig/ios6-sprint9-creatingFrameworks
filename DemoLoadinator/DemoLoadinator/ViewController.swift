@@ -10,12 +10,12 @@ import UIKit
 import LoadinationIndicator
 
 class ViewController: UIViewController {
-	var animatedLoadingView: AnimationView?
+	var animatedLoadingView: LoadinationAnimatorView?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		let animationView = AnimationView.fullscreenOverlay()
+		let animationView = LoadinationAnimatorView.fullscreenOverlay()
 		animationView?.animation = .bounce
 		animationView?.beginAnimation()
 
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func playPressed(_ sender: UIBarButtonItem) {
-		animatedLoadingView = AnimationView(frame: view.frame)
+		animatedLoadingView = LoadinationAnimatorView(frame: view.frame)
 		animatedLoadingView?.statusLabelPosition = .bottom
 		view.addSubview(animatedLoadingView!)
 		animatedLoadingView?.beginAnimation()
