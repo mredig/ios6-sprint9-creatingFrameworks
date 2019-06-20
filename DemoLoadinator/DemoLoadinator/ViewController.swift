@@ -16,17 +16,18 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 
 		let animationView = AnimationView.fullscreenOverlay()
+		animationView?.animation = .bounce
 		animationView?.beginAnimation()
-		animationView?.statusLabelPosition = .top
 
-		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-			animationView?.endAnimation()
-			animationView?.removeFromSuperview()
-		}
+//		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//			animationView?.endAnimation()
+//			animationView?.removeFromSuperview()
+//		}
 	}
 
 	@IBAction func playPressed(_ sender: UIBarButtonItem) {
 		animatedLoadingView = AnimationView(frame: view.frame)
+		animatedLoadingView?.statusLabelPosition = .bottom
 		view.addSubview(animatedLoadingView!)
 		animatedLoadingView?.beginAnimation()
 	}

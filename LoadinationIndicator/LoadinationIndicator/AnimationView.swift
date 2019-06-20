@@ -14,6 +14,24 @@ public class AnimationView: UIView {
 	@IBOutlet var contentView: UIView!
 	@IBOutlet var animatedViews: [UIView]!
 
+
+	@IBOutlet public var statusLabel: UILabel!
+	@IBOutlet var statusBottomAnchor: NSLayoutConstraint!
+	@IBOutlet var statusTopAnchor: NSLayoutConstraint!
+
+	// MARK: - Properties: Status
+	private var animationStopping: Bool = false
+
+	public var isAnimating: Bool {
+		for blob in animatedViews {
+			if blob.layer.animationKeys() != nil {
+				return true
+			}
+		}
+		return false
+	}
+
+	// MARK: - Options
 	public enum StatusLabelPosition {
 		case top, bottom
 	}
@@ -29,20 +47,11 @@ public class AnimationView: UIView {
 			}
 		}
 	}
-	@IBOutlet public var statusLabel: UILabel!
-	@IBOutlet var statusBottomAnchor: NSLayoutConstraint!
-	@IBOutlet var statusTopAnchor: NSLayoutConstraint!
 
-	// MARK: - Properties: Status
-	private var animationStopping: Bool = false
-
-	public var isAnimating: Bool {
-		for blob in animatedViews {
-			if blob.layer.animationKeys() != nil {
-				return true
-			}
-		}
-		return false
+	public var animation = Animation.growFade
+	public enum Animation {
+		case growFade
+		case bounce
 	}
 
 	// MARK: - Inits
@@ -73,7 +82,12 @@ public class AnimationView: UIView {
 	public func beginAnimation() {
 		animationStopping = false
 		for (index, blob) in animatedViews.enumerated() {
-			animate(view: blob, delayed: Double(index) * 1)
+			switch animation {
+			case .bounce:
+				animateBounce(view: blob, delayed: Double(index))
+			case .growFade:
+				animateGrowFade(view: blob, delayed: Double(index) * 1)
+			}
 		}
 	}
 
@@ -92,7 +106,7 @@ public class AnimationView: UIView {
 
 // MARK: - Actual Animations
 extension AnimationView {
-	private func animate(view: UIView, duration: TimeInterval = 3, delayed: TimeInterval = 0) {
+	private func animateGrowFade(view: UIView, duration: TimeInterval = 3, delayed: TimeInterval = 0) {
 		view.transform = CGAffineTransform(scaleX: 0, y: 0)
 		view.alpha = 0
 		guard animationStopping == false else { return }
@@ -107,8 +121,46 @@ extension AnimationView {
 				view.alpha = 0
 			})
 		}) { [weak self] _ in
-			self?.animate(view: view, duration: duration)
+			self?.animateGrowFade(view: view, duration: duration)
 		}
+	}
+
+	private func animateBounce(view: UIView, duration: TimeInterval = 3, delayed: TimeInterval = 0) {
+		view.transform = CGAffineTransform(scaleX: 1, y: 1)
+		let bounceStart = CGAffineTransform(translationX: 0, y: 120)
+		view.transform = bounceStart
+		view.alpha = 0
+
+		guard animationStopping == false else { return }
+
+		let fades = {
+			UIView.animateKeyframes(withDuration: duration, delay: 0, options: [], animations: {
+				UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.01, animations: {
+					view.alpha = 1.0
+				})
+				UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2, animations: {
+					view.alpha = 0
+				})
+			})
+		}
+
+		let dampening: CGFloat = 0.3
+		let bounce = {
+			UIView.animate(withDuration: duration / 3, delay: 0, usingSpringWithDamping: dampening, initialSpringVelocity: 0, options: [], animations: {
+				view.transform = .identity
+			})
+			UIView.animate(withDuration: duration / 6, delay: (duration / 6) * 5, options: [], animations: {
+				view.transform = bounceStart
+			}, completion: { [weak self] _ in
+				self?.animateBounce(view: view, duration: duration, delayed: 0.2)
+			})
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + delayed) {
+			fades()
+			bounce()
+		}
+
 	}
 }
 
