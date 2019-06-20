@@ -15,6 +15,7 @@ public class LoadinationAnimatorView: UIView {
 	@IBOutlet var animatedViews: [UIView]!
 
 
+	/// Access to the status label. Customize however you'd like. Set to empty to eliminate.
 	@IBOutlet public var statusLabel: UILabel!
 	@IBOutlet var statusBottomAnchor: NSLayoutConstraint!
 	@IBOutlet var statusTopAnchor: NSLayoutConstraint!
@@ -22,6 +23,7 @@ public class LoadinationAnimatorView: UIView {
 	// MARK: - Properties: Status
 	private var animationStopping: Bool = false
 
+	/// Boolean indicating if animation is currently running.
 	public var isAnimating: Bool {
 		for blob in animatedViews {
 			if blob.layer.animationKeys() != nil {
@@ -32,9 +34,14 @@ public class LoadinationAnimatorView: UIView {
 	}
 
 	// MARK: - Options
+	/// States the status label can be in.
 	public enum StatusLabelPosition {
-		case top, bottom
+		/// Positioned on top of the animation
+		case top
+		/// Positioned below the animation
+		case bottom
 	}
+	/// Set to change the location of the status label.
 	public var statusLabelPosition = StatusLabelPosition.bottom {
 		didSet {
 			switch statusLabelPosition {
@@ -48,6 +55,7 @@ public class LoadinationAnimatorView: UIView {
 		}
 	}
 
+	/// Access to the background color property.
 	public override var backgroundColor: UIColor? {
 		get {
 			return contentView.backgroundColor
@@ -57,6 +65,7 @@ public class LoadinationAnimatorView: UIView {
 		}
 	}
 
+	/// Access to the tint color property.
 	public override var tintColor: UIColor? {
 		get {
 			return animatedViews.first?.backgroundColor
@@ -68,9 +77,13 @@ public class LoadinationAnimatorView: UIView {
 		}
 	}
 
+	/// Determines the animation that is run when `beginAnimation` is called. Must be set first.
 	public var animation = Animation.growFade
+	/// Enumeration of the different Animation types
 	public enum Animation {
+		/// A slow, mezmerizing grow and fade animation
 		case growFade
+		/// A cheeky bounce, before the blobs disappear
 		case bounce
 	}
 
@@ -99,6 +112,7 @@ public class LoadinationAnimatorView: UIView {
 	}
 
 	// MARK: - Controls
+	/// Animation will not start on its own, but needs `beginAnimation` to be called.
 	public func beginAnimation() {
 		animationStopping = false
 		for (index, blob) in animatedViews.enumerated() {
@@ -111,6 +125,11 @@ public class LoadinationAnimatorView: UIView {
 		}
 	}
 
+
+	/// Allows you control to end the animation without removing the view from the screen. By default, it will allow
+	/// existing animations to play out.
+	///
+	/// - Parameter immediate: Force animations to cease immediately. Can be jarring.
 	public func endAnimation(immediately immediate: Bool = false) {
 		animationStopping = true
 		if immediate {
@@ -186,6 +205,11 @@ extension LoadinationAnimatorView {
 
 // MARK: - Special
 extension LoadinationAnimatorView {
+	/// Convenience function to get the entire screen covered in the progress indicator. Note that this prevents all
+	/// input from occurring. There is also no need to add as a subview, as that is handled internally. Just remember to
+	/// call `beginAnimation`
+	///
+	/// - Returns: Reference to LoadinationAnimatorView that will cover the whole screen
 	public static func fullscreenOverlay() -> LoadinationAnimatorView? {
 		guard let rootView = UIApplication.shared.delegate?.window??.rootViewController?.view else { return nil }
 		let animationView = LoadinationAnimatorView(frame: rootView.frame)
@@ -193,6 +217,12 @@ extension LoadinationAnimatorView {
 		return animationView
 	}
 
+	/// Convenience function to a panel based indicator. Note that this prevents all
+	/// input from occurring. There is also no need to add as a subview, as that is handled internally. Just remember to
+	/// call `beginAnimation`
+	///
+	/// - Parameter size: CGSize value to customize the size of the panel. Defaults to 350.
+	/// - Returns: Reference to LoadinationAnimatorView panel view
 	public static func fullScreenPanel(sized size: CGFloat = 350) -> LoadinationAnimatorView? {
 		guard let animator = fullscreenOverlay() else { return nil }
 		animator.contentView.translatesAutoresizingMaskIntoConstraints = false
